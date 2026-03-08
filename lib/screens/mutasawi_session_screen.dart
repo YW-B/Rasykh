@@ -539,11 +539,12 @@ class _MutasawiSessionScreenState extends State<MutasawiSessionScreen> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    'Chunk ${chunk.index + 1}',
-                    style: GoogleFonts.inter(
+                    'الجزء ${chunk.index + 1}',
+                    textDirection: TextDirection.rtl,
+                    style: GoogleFonts.scheherazadeNew(
                       color: Colors.white,
-                      fontSize: 16,
-                      fontWeight: FontWeight.w500,
+                      fontSize: 18,
+                      fontWeight: FontWeight.w600,
                     ),
                   ),
                   const SizedBox(height: 2),
@@ -699,11 +700,12 @@ class _MutasawiSessionScreenState extends State<MutasawiSessionScreen> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      'Section ${index + 1}',
-                      style: GoogleFonts.inter(
+                      'المقطع ${index + 1}',
+                      textDirection: TextDirection.rtl,
+                      style: GoogleFonts.scheherazadeNew(
                         color: Colors.white,
-                        fontSize: 16,
-                        fontWeight: FontWeight.w500,
+                        fontSize: 18,
+                        fontWeight: FontWeight.w600,
                       ),
                     ),
                     const SizedBox(height: 4),
@@ -843,10 +845,12 @@ class _MutasawiSessionScreenState extends State<MutasawiSessionScreen> {
 
                   const SizedBox(height: 8),
                   Text(
-                    'Tap to count repetition',
-                    style: GoogleFonts.inter(
+                    'اقرأ الآية واضغط على الزر مرة واحدة فقط في كل قراءة',
+                    textDirection: TextDirection.rtl,
+                    textAlign: TextAlign.center,
+                    style: GoogleFonts.scheherazadeNew(
                       color: AppColors.emerald100.withValues(alpha: 0.30),
-                      fontSize: 12,
+                      fontSize: 16,
                     ),
                   ),
                   const SizedBox(height: 24),
@@ -1023,6 +1027,34 @@ class _MutasawiSessionScreenState extends State<MutasawiSessionScreen> {
               ),
             ),
           if (hasMoreChunks) const SizedBox(height: 16),
+
+          GestureDetector(
+            onTap: () {
+              setState(() {
+                _initChunk(_activeChunk!);
+              });
+            },
+            child: Container(
+              padding: const EdgeInsets.symmetric(horizontal: 32, vertical: 16),
+              decoration: BoxDecoration(
+                color: Colors.transparent,
+                borderRadius: BorderRadius.circular(16),
+                border: Border.all(
+                  color: AppColors.emerald500.withValues(alpha: 0.40),
+                ),
+              ),
+              child: Text(
+                'إعادة الحفظ بالطريقة المتساوي',
+                textDirection: TextDirection.rtl,
+                style: GoogleFonts.inter(
+                  color: Colors.white,
+                  fontSize: 15,
+                  fontWeight: FontWeight.w500,
+                ),
+              ),
+            ),
+          ),
+          const SizedBox(height: 16),
 
           GestureDetector(
             onTap: () => Navigator.of(context).pop(),

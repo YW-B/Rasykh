@@ -9,6 +9,7 @@ import '../data/mutasawi_logic.dart';
 import '../theme/app_theme.dart';
 import '../theme/glass_widgets.dart';
 import 'mutasawi_session_screen.dart';
+import 'privacy_policy_screen.dart';
 import 'recall_challenge_screen.dart';
 import 'stats_settings_screen.dart';
 
@@ -82,6 +83,35 @@ class _ProgressScreenState extends State<ProgressScreen> {
           if (items.isEmpty) _buildEmptyState(),
           const SizedBox(height: 16),
           _buildSupportCard(),
+          const SizedBox(height: 16),
+          InkWell(
+            onTap: () {
+              Navigator.of(context).push(
+                MaterialPageRoute(builder: (_) => const PrivacyPolicyScreen()),
+              );
+            },
+            borderRadius: BorderRadius.circular(12),
+            child: Padding(
+              padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 8),
+              child: Row(
+                children: [
+                  const Icon(
+                    Icons.privacy_tip,
+                    color: AppColors.emerald100,
+                    size: 22,
+                  ),
+                  const SizedBox(width: 12),
+                  Text(
+                    'Privacy Policy',
+                    style: GoogleFonts.inter(
+                      color: AppColors.emerald100,
+                      fontSize: 15,
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ),
         ],
       ),
     );

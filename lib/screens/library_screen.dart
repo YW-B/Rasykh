@@ -402,7 +402,7 @@ class _LibraryScreenState extends State<LibraryScreen> {
 
           // In Progress surahs
           if (inProgressFiltered.isNotEmpty) ...[
-            _sectionTitle('In Progress', count: inProgressFiltered.length),
+            _sectionTitle('قيد الحفظ', count: inProgressFiltered.length),
             const SizedBox(height: 12),
             ...inProgressFiltered.map(
               (s) => _buildSurahCard(s, surahProgress[s.number]),
@@ -412,7 +412,7 @@ class _LibraryScreenState extends State<LibraryScreen> {
 
           // Completed surahs
           if (completedFiltered.isNotEmpty) ...[
-            _sectionTitle('Completed', count: completedFiltered.length),
+            _sectionTitle('مكتمل', count: completedFiltered.length),
             const SizedBox(height: 12),
             ...completedFiltered.map(
               (s) => _buildSurahCard(s, surahProgress[s.number]),
@@ -422,7 +422,7 @@ class _LibraryScreenState extends State<LibraryScreen> {
 
           // Not Started surahs
           if (notStartedFiltered.isNotEmpty) ...[
-            _sectionTitle('Not Started', count: notStartedFiltered.length),
+            _sectionTitle('لم يبدأ بعد', count: notStartedFiltered.length),
             const SizedBox(height: 12),
             ...notStartedFiltered.map((s) => _buildSurahCard(s, null)),
           ],
@@ -691,9 +691,11 @@ class _LibraryScreenState extends State<LibraryScreen> {
       children: [
         Text(
           title,
-          style: GoogleFonts.inter(
+          textDirection: TextDirection.rtl,
+          style: GoogleFonts.scheherazadeNew(
             color: Colors.white.withValues(alpha: 0.80),
-            fontSize: 18,
+            fontSize: 22,
+            fontWeight: FontWeight.bold,
           ),
         ),
         if (count != null) ...[
