@@ -30,9 +30,9 @@ android {
     signingConfigs {
         create("release") {
             storeFile = file("C:\\Users\\yahia\\rasykh-upload-key.jks")
-            storePassword = "goblin"
-            keyAlias = "upload"
-            keyPassword = "goblin"
+            storePassword = ""
+            keyAlias = ""
+            keyPassword = ""
         }
     }
 
